@@ -1,1 +1,0 @@
-{"name":"Local: dry","url":"c:\\Users\\Harshavardhan\\Desktop\\codeforces\\dry.cpp","tests":[{"id":1700665264596,"input":"3\n4\n2 4 3 6\n2\n4 4\n5\n1 3 5 17 9","output":"0\n0\n14"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Harshavardhan\\Desktop\\codeforces\\dry.cpp","group":"local","local":true}
