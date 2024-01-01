@@ -414,59 +414,21 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n,k;
-    cin>>n>>k;
+    int n;
+    cin>>n;
     vector<ll>v(n);
     for(int i=0;i<n;i++){
         cin>>v[i];
     }
 
-    ll mul=1;
-    for(int i=0;i<n;i++){
-        mul*=v[i];
-    }
-    ll rem = 2023/mul;
-    // cout<<"REM: "<<rem<<endl;
-    if(2023%mul!=0){
-        cout<<"NO\n";
-        return;
+    ll mini = *min_element(v.begin(),v.end());
+
+    if(mini==v[0]){
+        cout<<"YES\n";
     }
     else{
-        cout<<"YES\n";
-        vector<int>ans;
-        
-        while(rem>=1&&k--){
-            if(rem>=2023){
-                 ans.push_back(2023);
-                 rem/=2023;
-            }
-            else if(rem>=289){
-                ans.push_back(289);
-                rem/=289;
-            }
-            else if(rem>=119){
-                ans.push_back(119);
-                rem/=119;
-            }
-            else if(rem>=17){
-                ans.push_back(17);
-                rem/=17;
-            }
-            else if(rem>=7){
-                ans.push_back(7);
-                rem/=7;
-            }
-            else{
-                ans.push_back(1);
-            }
-        }
-        for(auto& x:ans){
-            cout<<x<<" ";
-        }
+        cout<<"NO\n";
     }
-    cout<<"\n";
-
-
 }
 
 int main()

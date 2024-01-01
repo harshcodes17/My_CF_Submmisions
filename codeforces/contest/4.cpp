@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
@@ -514,41 +513,38 @@ void solve()
 {
     ll n;
     cin >> n;
-    int ans = 0;
-    map<ll, ll> mp;
-    ll arr[n];
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    mp[0] = 1;
-    ll sums = 0;
-    for (int i = 0; i < n; i++)
+    ll v[n];
+    for (ll i = 0; i < n; i++){
+        cin >> v[i];
+    }
+    vector<ll> ans(n);
+    ans[0] = v[0];
+    ll s = v[0];
+    for (ll i = 1; i < n; i++)
     {
-        if (i % 2 == 0)
-        {
-            sums = sums + arr[i];
+        s+=v[i];
+        if (s%2!=0){
+            ans[i]=s-1;
         }
-        else
-        {
-            sums = sums - arr[i];
+        else{
+            ans[i]=s;
         }
-        if (mp[sums])
-            ans = 1;
-        else
-            mp[sums]++;
     }
-    if (ans)
+    for (ll i=0;i<n-1;i++){
+        if (ans[i]==ans[i+1]){
+            ans[i]-=2;
+        }
+    }
+    for (auto x : ans)
     {
-        cout << "YES" << endl;
+        cout << x << " ";
     }
-    else
-    {
-        cout << "NO" << endl;
-    }
+    cout << endl;
 }
 
 int main()
 {
-    file();
+    // file();
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t = 1;

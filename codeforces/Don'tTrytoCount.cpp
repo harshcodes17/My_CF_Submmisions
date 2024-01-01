@@ -414,59 +414,24 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n,k;
-    cin>>n>>k;
-    vector<ll>v(n);
-    for(int i=0;i<n;i++){
-        cin>>v[i];
-    }
-
-    ll mul=1;
-    for(int i=0;i<n;i++){
-        mul*=v[i];
-    }
-    ll rem = 2023/mul;
-    // cout<<"REM: "<<rem<<endl;
-    if(2023%mul!=0){
-        cout<<"NO\n";
+    int n,m;
+    cin>>n>>m;
+    string x,s;
+    cin>>x>>s;
+    int ans = 0;
+    int h = 6;
+    while(h--){
+        size_t found = x.find(s);
+        if(found!=string::npos){
+        cout<<ans<<endl;
         return;
-    }
-    else{
-        cout<<"YES\n";
-        vector<int>ans;
-        
-        while(rem>=1&&k--){
-            if(rem>=2023){
-                 ans.push_back(2023);
-                 rem/=2023;
-            }
-            else if(rem>=289){
-                ans.push_back(289);
-                rem/=289;
-            }
-            else if(rem>=119){
-                ans.push_back(119);
-                rem/=119;
-            }
-            else if(rem>=17){
-                ans.push_back(17);
-                rem/=17;
-            }
-            else if(rem>=7){
-                ans.push_back(7);
-                rem/=7;
-            }
-            else{
-                ans.push_back(1);
-            }
         }
-        for(auto& x:ans){
-            cout<<x<<" ";
-        }
+        x+=x;
+        ans++;
     }
-    cout<<"\n";
-
-
+    //cout<<"x:"<<x<<"\ns:"<<s<<"\n";
+    cout<<-1<<endl;
+    
 }
 
 int main()

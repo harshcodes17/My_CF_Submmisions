@@ -414,59 +414,41 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n,k;
-    cin>>n>>k;
-    vector<ll>v(n);
-    for(int i=0;i<n;i++){
-        cin>>v[i];
+    int n;
+    cin>>n;
+    vector<ll>v;
+    inputArr(n,v);
+    map<ll,ll>mp;
+    ll a = *min_element(v.begin(),v.end());
+    ll b = *max_element(v.begin(),v.end());
+    for(auto x:v){
+        mp[x]++;
     }
-
-    ll mul=1;
-    for(int i=0;i<n;i++){
-        mul*=v[i];
-    }
-    ll rem = 2023/mul;
-    // cout<<"REM: "<<rem<<endl;
-    if(2023%mul!=0){
-        cout<<"NO\n";
-        return;
+    if(mp.size()>2){
+        cout<<"No\n";
+        
     }
     else{
-        cout<<"YES\n";
-        vector<int>ans;
-        
-        while(rem>=1&&k--){
-            if(rem>=2023){
-                 ans.push_back(2023);
-                 rem/=2023;
-            }
-            else if(rem>=289){
-                ans.push_back(289);
-                rem/=289;
-            }
-            else if(rem>=119){
-                ans.push_back(119);
-                rem/=119;
-            }
-            else if(rem>=17){
-                ans.push_back(17);
-                rem/=17;
-            }
-            else if(rem>=7){
-                ans.push_back(7);
-                rem/=7;
+        if((v.size()&1)==1){
+            
+            ll diff = abs(mp[a]-mp[b]);
+            //cout<<"DIFF: "<<diff<<endl;
+            if(diff==1 || mp.size()==1){
+                cout<<"Yes\n";
             }
             else{
-                ans.push_back(1);
+                cout<<"No\n";
             }
         }
-        for(auto& x:ans){
-            cout<<x<<" ";
+        else{
+            if(mp[a] == mp[b]){
+                cout<<"Yes\n";
+            }
+            else{
+                cout<<"No\n";
+            }
         }
     }
-    cout<<"\n";
-
-
 }
 
 int main()
