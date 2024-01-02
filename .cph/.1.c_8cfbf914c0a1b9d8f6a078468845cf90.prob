@@ -1,0 +1,1 @@
+{"name":"Local: 1","url":"c:\\Users\\Harshavardhan\\Desktop\\CP\\1.c","tests":[{"id":1704117435137,"input":"1\n2 2 3","output":"2"},{"id":1704117465780,"input":"1\n4 5 8","output":"5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Harshavardhan\\Desktop\\CP\\1.c","group":"local","local":true}
