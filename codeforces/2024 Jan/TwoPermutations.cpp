@@ -414,25 +414,20 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n;
-    cin>>n;
-    vector<ll>v;
-    inputArr(n,v);
-    int flag = 0;
-    for(int i=0; i<n; i++){
-        for(int j=i+1;j<n;j++){
-            
-            if((gcd(v[j],v[i]))<=2){
-                flag=1;
-            }
-        }
-    }
-    if(flag==0){
-        cout<<"No\n";
-    }
-    else{
-        cout<<"Yes\n";
-    }
+  int a,b,c;
+  cin >> a >> b >> c ;
+  if(a==b && b==c){
+    cout<<"Yes"<<endl;
+  }  
+  else if(a <(b+c)){
+    cout<<"No"<<endl;
+  }
+  else if((a-(b+c))<2){
+    cout<<"No"<<endl;
+  }
+  else{
+    cout<<"Yes\n";
+  }
 }
 
 int main()
