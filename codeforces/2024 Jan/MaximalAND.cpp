@@ -427,29 +427,22 @@ void solve()
         cout<<ans<<endl;
         return;
     }
-    if(n==1){
-        cout<<"2147483646"<<endl;
-        return;
-    }
+    vector<ll>cnt(31,0);
     for(int i=30; i>=0; i--){
-        int ops = k;
-        int index = 1;
-        ll current_and;
-        if((v[0]&(1<<i))==0){
-            current_and=v[0]|(1<<i);
-            ops--;
-        }
-        while(ops!=0){
-            if((v[0]&(1<<i))==0){
-                v[index] = (v[index]|(1<<i));
-                ops--;
+        int c = 0;
+        for(int j=0; j<n; j++){
+            if((v[j]&(1<<i))>0){
+                c++;
             }
-            index++;
-            current_and = current_and & v[index];
-            
         }
-        //cout<<"Current:"<<current_and<<endl;
-        maxi = max(maxi,current_and);
+        cnt[i]=n-c;
+    }
+
+    for(int i=30; i>=0; i--){
+        if(cnt[i]<=k){
+            k-=cnt[i];
+            maxi|=1<<i;
+        }
     }
     cout<<maxi<<endl;
 }
