@@ -414,15 +414,21 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n,x,y;
-    cin >> n >> x >> y;
-    int yhalf = y/3;
-    n = n - yhalf;
-    x = x-(yhalf);
-    if(n>x){
-        cout<<"NO\n";
+    int n,k;
+    cin >> n >> k;
+    string s;
+    cin>>s;
+    map<char,int>mp;
+    for(auto x:s){
+        mp[x]++;
     }
-    else if(n>(x/2)){
+    int c=0;
+    for(auto x:mp){
+        if(x.second&1==1){
+            c++;
+        }
+    }
+    if(c>(k+1)){
         cout<<"NO\n";
     }
     else{

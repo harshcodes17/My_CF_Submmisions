@@ -414,20 +414,44 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n,x,y;
-    cin >> n >> x >> y;
-    int yhalf = y/3;
-    n = n - yhalf;
-    x = x-(yhalf);
-    if(n>x){
-        cout<<"NO\n";
+    int n,k;
+    cin>>n>>k;
+    vector<ll>v;
+    inputArr(n,v);
+    ll maxi = 0;
+    if(k==0){
+        ll ans = v[0];
+        for(int i=1;i<n;i++){
+            ans&= v[i];
+        }
+        cout<<ans<<endl;
+        return;
     }
-    else if(n>(x/2)){
-        cout<<"NO\n";
+    if(n==1){
+        cout<<"2147483646"<<endl;
+        return;
     }
-    else{
-        cout<<"YES\n";
+    for(int i=30; i>=0; i--){
+        int ops = k;
+        int index = 1;
+        ll current_and;
+        if((v[0]&(1<<i))==0){
+            current_and=v[0]|(1<<i);
+            ops--;
+        }
+        while(ops!=0){
+            if((v[0]&(1<<i))==0){
+                v[index] = (v[index]|(1<<i));
+                ops--;
+            }
+            index++;
+            current_and = current_and & v[index];
+            
+        }
+        //cout<<"Current:"<<current_and<<endl;
+        maxi = max(maxi,current_and);
     }
+    cout<<maxi<<endl;
 }
 // ----------> 2023 was the warm-up <-----------
 int main()

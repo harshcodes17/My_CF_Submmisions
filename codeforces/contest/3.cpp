@@ -406,7 +406,7 @@ bool isPalindrome(string s) {
     return true;
 }
 
-// ----------- Code Starts Here ----------- //
+// -----------> Tatakae Tatakae <----------- //
 
 bool isSame(char a, char b) {
     return isVowel(a) == isVowel(b);
@@ -414,21 +414,32 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    ll a,b;
-    cin>>a>>b;
-    
-    
-        if(max(a,b)%(min(a,b))==0)
-        {ll mas = gcd(a,b);
-        int ans = (max(a,b)/mas)*max(a,b);
-        cout<<ans<<endl;}
-        else{
-            ll ans = lcm(a,b);
-            cout<<ans<<endl;
+    int n;
+    cin>>n;
+    vector<ll>v1;
+    inputArr(n,v1);
+    vector<ll>v2;
+    inputArr(n,v2);
+    sort(v1.begin(),v1.end());
+    sort(v2.begin(),v2.end(),greater<ll>());
+    for(int i=1;i<n;i++){
+        if((v1[i]+v2[i])!=(v1[i-1]+v2[i-1])){
+            cout<<"-1\n";
+            return;
         }
-    
- 
+    }
+    for(auto& x:v1){
+        cout<<x<<" ";
+    }
+    cout<<"\n";
+    for(auto& x:v2){
+        cout<<x<<" ";
+    }
+    cout<<"\n";
+
+
 }
+// ----------> 2023 was the warm-up <-----------
 int main()
 {
     //file();

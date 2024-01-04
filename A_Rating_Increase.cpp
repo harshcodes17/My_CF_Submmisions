@@ -414,20 +414,22 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n,x,y;
-    cin >> n >> x >> y;
-    int yhalf = y/3;
-    n = n - yhalf;
-    x = x-(yhalf);
-    if(n>x){
-        cout<<"NO\n";
+    string ab;
+    cin >> ab;
+    for(int i=1;i<ab.length();i++){
+        string a = ab.substr(0,i);
+        string b = ab.substr(i,ab.length()-i+1);
+        if(b[0]=='0'){
+            continue;
+        }
+        int ae = stoi(a);
+        int be = stoi(b);
+        if(a<b){
+            cout<<a<<" "<<b<<endl;
+            return;
+        }
     }
-    else if(n>(x/2)){
-        cout<<"NO\n";
-    }
-    else{
-        cout<<"YES\n";
-    }
+    cout<<-1<<endl;
 }
 // ----------> 2023 was the warm-up <-----------
 int main()
@@ -437,9 +439,10 @@ int main()
     cin.tie(NULL);
     int t = 1;
     cin >> t;
-    while(t--)
-    {
+    for(int i=1;i<=t;i++){
+        // cout<<"#"<<i<<":";
         solve();
+        // cout<<"\n";
     }
     return 0;
 }

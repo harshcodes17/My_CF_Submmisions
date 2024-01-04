@@ -414,19 +414,44 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    int n,x,y;
-    cin >> n >> x >> y;
-    int yhalf = y/3;
-    n = n - yhalf;
-    x = x-(yhalf);
-    if(n>x){
+    int n,k;
+    cin>>n>>k;
+
+    if(n<k){
         cout<<"NO\n";
+        return;
     }
-    else if(n>(x/2)){
+    vector<ll>ans;
+    for(int i=0;i<32;i++){
+        if(n & (1<<i)){
+            ans.push_back(1<<i);
+        }
+    }
+    if(ans.size()>k){
         cout<<"NO\n";
+        return;
     }
     else{
+        // for(auto& x:ans){
+        //     cout<<x<<" ";
+        // }
+        cout<<"\n";
+        int  ptr = 0;
+        int size = ans.size();
+        while(size<k){
+            if(ans[ptr]==1){
+                ptr++;
+            }
+            else{
+                ans[ptr]/=2;
+                ans.push_back(ans[ptr]);
+                size++;
+            }
+        }
         cout<<"YES\n";
+        for(auto& x:ans){
+            cout<<x<<" ";
+        }
     }
 }
 // ----------> 2023 was the warm-up <-----------
@@ -436,7 +461,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while(t--)
     {
         solve();
