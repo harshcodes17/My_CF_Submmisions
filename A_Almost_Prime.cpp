@@ -414,12 +414,30 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    string s;
-    cin >> s;
-    ll n = s.size();
+    ll n;
+    cin>>n;
+    if(n==1 || n==2){
+        cout<<0<<endl;
+        return;
+    }
+    ll ans = 0;
     
+    for(int i=1;i<=n;i++){
+        vector<ll>temp = primeFactorization(i);
+        set<ll>s;
+        for(auto x: temp){
+            s.insert(x);
+        }
+        if(s.size()==2){
+            // for(auto x:temp){
+            //     cout<<x<<" ";
+            // }
+            // cout<<endl;
+            ans++;
+        }
+    }
     
-    
+   cout<<ans;
 }
 // ----------> 2023 was the warm-up <-----------
 int main()
@@ -428,7 +446,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i=1;i<=t;i++){
         // cout<<"#"<<i<<":";
         solve();

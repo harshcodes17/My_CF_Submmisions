@@ -415,11 +415,15 @@ bool isSame(char a, char b) {
 void solve() 
 {
     string s;
-    cin >> s;
-    ll n = s.size();
+    cin>>s;
+    int n = s.size();
+    if(n==1){
+        cout<<s<<endl;
+    }
+
     
-    
-    
+
+
 }
 // ----------> 2023 was the warm-up <-----------
 int main()

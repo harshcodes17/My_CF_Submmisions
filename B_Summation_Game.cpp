@@ -417,34 +417,28 @@ void solve()
     ll n,k,x;
     cin>>n>>k>>x;
     vector<ll>v(n);
+
     for(int i=0;i<n;i++){
         cin>>v[i];       
     }
     sort(v.begin(),v.end(),greater<ll>());
-    ll maxi = *max_element(v.begin(),v.end());
-    vector<ll>pre;
-    pre.push_back(0);
-    ll sum = 0;
-    vector<ll>ans;
-    for(int i=0;i<n;i++){
-        sum+=v[i];
-        pre.push_back(sum);
+    vector<ll>pre(n + 1);
+    ll ans = -1e9;
+    for(int i = 1; i <= n; ++i){
+        pre[i] = pre[i - 1] + v[i - 1];
     }
-    ll a = 0;
-    for(int i=x;i<n;i++){
-        ll temp = (maxi-pre[a])- 2*(pre[i]-pre[a]);
-        cout<<temp<<" ";
-        a++;
-        
-    }
-    // for(auto& x:v){
-    //     cout<<x<<" ";
-    // }
-    cout<<"\n";
     for(auto& x:pre){
         cout<<x<<" ";
     }
     cout<<"\n";
+    for(int i = 0; i <= k; ++i){
+        int b = min(n, i + x);
+        ll sum = (pre[n] - pre[b]) - (pre[b] - pre[i]);
+        ans = max(ans, sum);
+    }
+    cout << ans << '\n';
+    return;
+
 }
 // ----------> 2023 was the warm-up <-----------
 int main()

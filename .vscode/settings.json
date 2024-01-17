@@ -4,6 +4,10 @@
         "ostream": "cpp",
         "random": "cpp",
         "string": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "bitset": "cpp",
+        "set": "cpp",
+        "format": "cpp",
+        "cmath": "cpp"
     }
 }

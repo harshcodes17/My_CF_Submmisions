@@ -414,12 +414,42 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    string s;
-    cin >> s;
-    ll n = s.size();
-    
-    
-    
+    ll n;
+    cin>>n;
+    vector<ll>v(n);
+    for(int i=0;i<n;i++){
+        cin>>v[i];       
+    }
+    vector<ll>odd;
+    for(auto x:v){
+        if(x&1==1){
+            odd.push_back(x);
+        }
+    }
+    ll maxi = *max_element(odd.begin(),odd.end());
+    vector<ll>ans;
+    for(int i=0;i<n;i++){
+        if(v[i]==1){
+            ans.push_back(maxi);
+        }     
+        else if(v[i]==maxi){
+            ans.push_back(1);
+        }
+        else{
+            ans.push_back(v[i]);
+        }
+    }
+    for(int i=0;i<n;i++){
+        ll add = v[i]+ans[i];
+        if(isPrime(add)==true){
+            cout<<-1<<"\n";
+            return;
+        }       
+    }
+    for(auto& x:ans){
+        cout<<x<<" ";
+    }
+    cout<<endl;
 }
 // ----------> 2023 was the warm-up <-----------
 int main()

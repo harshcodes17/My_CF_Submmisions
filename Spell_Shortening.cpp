@@ -413,13 +413,30 @@ bool isSame(char a, char b) {
 }
 
 void solve() 
-{
+{   
+    ll n;
+    cin>>n;
     string s;
-    cin >> s;
-    ll n = s.size();
-    
-    
-    
+    cin>>s;
+    ll ind = 0;
+    for(int i=1;i<s.size();i++){
+        if(s[i]<s[i-1]){
+            ind = i;
+            swap(s[i],s[i-1]);
+            //cout<<s[i]<<" "<<s[i-1];
+            break;
+        }
+        if(i==n-1){
+            ind = i;
+        }
+    }
+    for(int i=0;i<n;i++){
+        if(i==ind){
+            continue;
+        }       
+        cout<<s[i];
+    }
+    cout<<"\n";
 }
 // ----------> 2023 was the warm-up <-----------
 int main()

@@ -414,12 +414,17 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    string s;
-    cin >> s;
-    ll n = s.size();
-    
-    
-    
+    ll n,a;
+    cin>>n>>a;
+    while(a--){
+        if(n%10==0){
+            n/=10;
+        }
+        else{
+            n--;
+        }
+    }   
+    cout<<n;
 }
 // ----------> 2023 was the warm-up <-----------
 int main()
@@ -428,7 +433,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     int t = 1;
-    cin >> t;
+    //cin >> t;
     for(int i=1;i<=t;i++){
         // cout<<"#"<<i<<":";
         solve();

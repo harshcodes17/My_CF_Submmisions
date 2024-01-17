@@ -411,13 +411,27 @@ bool isPalindrome(string s) {
 bool isSame(char a, char b) {
     return isVowel(a) == isVowel(b);
 }
-
+ll ans = 0;
+void backtrack(ll a , ll b , ll i){
+    if(a==b){
+        cout<<ans<<endl;
+        return;
+    }
+    ans++;
+    if(i%2==0){
+        backtrack(a-i,b,i+1);
+        backtrack(a,b-i,i+1);
+    }
+    else{
+        backtrack(a+i,b,i+1);
+        backtrack(a,b+i,i+1);
+    }
+}
 void solve() 
 {
-    string s;
-    cin >> s;
-    ll n = s.size();
-    
+    ll a,b;
+    cin>>a>>b;
+    backtrack(a,b,1);
     
     
 }
