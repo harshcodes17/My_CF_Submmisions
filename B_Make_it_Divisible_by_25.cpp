@@ -414,8 +414,25 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    
+    string s;
+    cin >> s;
+    ll n = s.size();
+    ll num = stoll(s);
+    if(num%25==0){
+        cout<<0<<endl;
+        return;
+    }
+    ll ans=0;
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(((s[i]-'0')*10+(s[j]-'0'))%25==0){
+                ans= n-2-i;
+            }
+        }
+    }
+    cout<<ans<<endl;
 }
+
 // ----------> 2023 was the warm-up <-----------
 int main()
 {

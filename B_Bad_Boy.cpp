@@ -414,31 +414,14 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    string s;
-    cin>>s;
-    string s1 = "10";
-    string s2 = "01";
-    ll c = 0;
-    while(s.find(s1) != string::npos || s.find(s2) != string::npos){
-        //cout<<"Heelo";
-        c++;
-        size_t i = s.find(s1);
-        size_t j = s.find(s2);
-        if(i!=-1){
-            s.erase(i,s1.length());
-        }
-        else{
-            s.erase(j,s2.length());
-        }
 
-    }
-    if(c&1==1){
-        cout<<"DA\n";
-    }
-    else{
-        cout<<"NET\n";
-    }
-}
+    ll n,m,i,j;
+    cin>>n>>m>>i>>j;
+    //max distant corner (1,1) or (n,m)
+    cout<<"1 1 "<<n<<" "<<m;
+    cout<<"\n";
+}    
+    
 // ----------> 2023 was the warm-up <-----------
 int main()
 {
