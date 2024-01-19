@@ -414,6 +414,11 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
+    string s;
+    cin >> s;
+    ll n = s.size();
+    
+    
     
 }
 // ----------> 2023 was the warm-up <-----------

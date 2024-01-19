@@ -414,6 +414,23 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
+    ll n;
+    cin >> n;
+    string a,b,c;
+    cin >> a >> b >> c;
+    ll falg = 0;
+
+    for(int i=0;i<n;i++){
+        if(c[i]==a[i] || c[i]==b[i]){
+            falg++;
+        }       
+    }
+    if(falg==n){
+        cout << "NO\n";
+    }
+    else{
+        cout << "YES\n";
+    }
     
 }
 // ----------> 2023 was the warm-up <-----------

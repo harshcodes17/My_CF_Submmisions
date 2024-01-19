@@ -417,64 +417,10 @@ void solve()
     string s;
     cin>>s;
     int n = s.size();
-
     if(n==1){
         cout<<s<<endl;
-        return;
-    }
-    map<char,int>mp;
-
-    for(auto x:s){
-        mp[x]++;
-    }
-    int ca = mp['a'];
-    int cb = mp['b'];
-    int countAB = 0;
-    int countBA = 0;
-
-    for(int i=1;i<n;i++){
-        if(s[i-1]=='a'&&s[i]=='b'){
-            countAB++;
-        }
-        else if(s[i-1]=='b'&&s[i]=='a'){
-            countBA++;
-        }
     }
 
-    if(countAB==countBA){
-        cout<<s<<endl;
-        return;
-    }
-
-    if(((countBA==1 && countAB==0) || (countAB==1 && countBA==0))&& ((n&1)==1)){
-        if(ca>cb){
-            string temp(n,'a');
-            cout<<temp<<endl;
-            return;
-        }
-        else{
-            string temp(n,'b');
-            cout<<temp<<endl;
-            return;
-        }
-    }
-    if(countBA>countAB){
-        for(int i=1;i<n;i++){
-            if(s[i-1]=='a'&&s[i]=='b'){
-                s[i-1]='b';
-                break;
-            }
-        }
-    }
-    else{
-        for(int i=1;i<n;i++){
-            if(s[i-1]=='b'&&s[i]=='a'){
-                s[i]='b';
-                break;
-            }
-        }
-    }
-    cout<<s<<endl;
     
 
 
