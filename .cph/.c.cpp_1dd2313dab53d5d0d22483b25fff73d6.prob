@@ -1,0 +1,1 @@
+{"name":"Local: c","url":"/home/harshavardhan/Desktop/My_CF_Submmisions/c.cpp","tests":[{"id":1706118864281,"input":"5\n1\n2\n3\n4\n6","output":"11111"},{"id":1706118911038,"input":"1\n23","output":"15"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/harshavardhan/Desktop/My_CF_Submmisions/c.cpp","group":"local","local":true}
