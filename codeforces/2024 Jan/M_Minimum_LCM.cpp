@@ -416,17 +416,36 @@ void solve()
 {
     ll n;
     cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++){
-        cin>>v[i];       
+    if(n%2==0){
+        cout<<n/2<<" "<<n/2<<endl;
+        return;
     }
 
-    ll c1 = count(v.begin(),v.end(),1);
-    ll c0 = count(v.begin(),v.end(),0);
+    ll a = 1;
+    ll b = n-a;
+    ll ans1=a,ans2=b;
+    ll l = lcm(a,b);
+    for(int i=2;i*i<=n;i++){
+        if(n%i==0){
+            ll t = lcm(i,n-i);
+            if(t<l){
+                l = t;
+                ans1 = i;
+                ans2 = n-i;
+            }
+        }
+        if(n/i!=i){
+            ll t1 = lcm(n/i,n-(n/i));
 
-    ll ans = 0;
-    ans = c1*max(1LL,(c0*2));
-    cout<<ans<<"\n";
+            if(t1<l){
+                l= t1;
+                ans1 = n/i;
+                ans2 = n-(n/i);
+            }
+        }
+    }
+    
+    cout<<ans1<<" "<<ans2<<"\n";
 }
 // ----------> 2023 was the warm-up <-----------
 int main()

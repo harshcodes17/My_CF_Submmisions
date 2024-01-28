@@ -412,21 +412,33 @@ bool isSame(char a, char b) {
     return isVowel(a) == isVowel(b);
 }
 
+
+const int n = 1e6;
+bool seive[n+1];
 void solve() 
 {
-    ll n;
-    cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++){
-        cin>>v[i];       
+    ll d;
+    cin>>d;
+    ll ans = 1;
+    ll mini = 1+d;
+
+    for(int i=mini;i<=n;i++){
+        if(seive[i]){
+            ans*=i;
+            mini = i;
+            break;
+        }
     }
+    mini = mini+d;
+    for(int i=mini;i<=n;i++){
+        if(seive[i]){
+            ans*=i;
+            break;
+        }
+    }
+    cout<<ans<<endl;
 
-    ll c1 = count(v.begin(),v.end(),1);
-    ll c0 = count(v.begin(),v.end(),0);
 
-    ll ans = 0;
-    ans = c1*max(1LL,(c0*2));
-    cout<<ans<<"\n";
 }
 // ----------> 2023 was the warm-up <-----------
 int main()
@@ -434,6 +446,14 @@ int main()
     //file();
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    memset(seive, true, sizeof(seive));
+    for(int i=2;i*i<=n;i++){
+        if(seive[i]){
+            for(int j=i*i;j<=n;j+=i){
+                seive[j]=false;
+            }
+        }
+    }
     int t = 1;
     cin >> t;
     for(int i=1;i<=t;i++){

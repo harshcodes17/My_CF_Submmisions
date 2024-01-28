@@ -414,19 +414,16 @@ bool isSame(char a, char b) {
 
 void solve() 
 {
-    ll n;
-    cin>>n;
-    vector<int>v(n);
-    for(int i=0;i<n;i++){
-        cin>>v[i];       
+    ll a,b;
+    cin>>a>>b;
+    
+    while(a--){
+        for(char i='a';i<'a'+b;i++){
+            cout<<i;
+        }
     }
-
-    ll c1 = count(v.begin(),v.end(),1);
-    ll c0 = count(v.begin(),v.end(),0);
-
-    ll ans = 0;
-    ans = c1*max(1LL,(c0*2));
-    cout<<ans<<"\n";
+   
+    cout<<'\n';
 }
 // ----------> 2023 was the warm-up <-----------
 int main()
